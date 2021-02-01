@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.bit.ex.paging.Criteria;
+import edu.bit.ex.paging.PageVO;
 import edu.bit.ex.service.BoardService;
 import edu.bit.ex.vo.EmpVO;
 import lombok.AllArgsConstructor;
@@ -60,6 +62,18 @@ public class listController {
 		model.addAttribute("list", boardService.getList());
 		System.out.println( boardService.getList().size());// 값이 넘어가는지 확인
 	
+	}
+	
+	@GetMapping("/board/list_view2")
+	public void list_view2(Criteria cri,Model model) {
+		log.info("list_view2");
+		log.info("cri");
+		model.addAttribute("list", boardService.getList(cri));
+		
+		int total = boardService.getTotal(cri);
+		log.info("total");
+		model.addAttribute("pageMaker", new PageVO(cri,total));
+		
 	}
 	
 }

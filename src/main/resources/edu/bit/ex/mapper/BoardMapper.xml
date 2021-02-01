@@ -6,7 +6,7 @@
 
 	<select id="getList" resultType="edu.bit.ex.vo.EmpVO">
 	<![CDATA[
-		select e.*, d.dname from emp e, dept d where e.deptno = d.deptno
+		select * from emp
 	]]>
 	</select>
 	
@@ -22,5 +22,20 @@
 	]]>
 	</insert>
 	
+	<select id="getListWithCriteria" resultType="edu.bit.ex.vo.EmpVO">
+	<![CDATA[
+		select * from(
+			select ROWNUM as RNUM, A.* from(
+				select * from emp
+			) A where ROWNUM <= #{pageNum} * #{amount}
+		) where RNUM > (#{pageNum}-1) * #{amount}
+	]]>
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+	<![CDATA[
+		select count(*) from emp
+	]]>
+	</select>
 	
 </mapper>

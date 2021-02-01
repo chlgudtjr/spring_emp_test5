@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import edu.bit.ex.mapper.BoardMapper;
+import edu.bit.ex.paging.Criteria;
 import edu.bit.ex.vo.EmpVO;
 import jdk.internal.org.jline.utils.Log;
 import lombok.AllArgsConstructor;
@@ -31,6 +32,18 @@ public class BoardServiceImpt implements BoardService{
 	public List<EmpVO> deptList() {
 		log.info("deptList..........");
 		return mapper.deptList();
+	}
+
+	@Override
+	public List<EmpVO> getList(Criteria cri) {
+		log.info("getListWithCriteria");
+		return mapper.getListWithCriteria(cri);
+	}
+
+	@Override
+	public int getTotal(Criteria cri) {
+		log.info("getTotalCount");
+		return mapper.getTotalCount(cri);
 	}
 
 }
