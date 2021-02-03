@@ -23,7 +23,7 @@ public class PageVO {
 		this.cri = cri;
 		this.total = total;
 		
-		this.endPage = (int)(Math.ceil(cri.getPageNum() / 10.0)) * displayPageNum;
+		this.endPage = (int)(Math.ceil(cri.getPageNum()/ 10.0) * displayPageNum);
 		this.startPage = (this.endPage - displayPageNum) + 1;
 		
 		int realEnd = (int)(Math.ceil((total * 1.0) / cri.getAmount()));
@@ -31,9 +31,10 @@ public class PageVO {
 		if(realEnd <= this.endPage) {
 			this.endPage = realEnd;
 			
-			this.prev = this.startPage > 1;
-			this.next = this.endPage < realEnd;
 		}
+		
+		this.prev = this.startPage > 1;
+		this.next = this.endPage < realEnd;
 	}
 	
 	public String makeQuery(int page) {

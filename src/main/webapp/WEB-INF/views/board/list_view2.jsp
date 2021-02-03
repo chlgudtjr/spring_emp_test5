@@ -380,7 +380,7 @@
                 </table>
               </div>
               	<c:if test="${pageMaker.prev}">
-					<a href="list_view2${pageMaker.makeQuery(pageMaker.startPage-1) }"> Prev </a>
+					<a href="list_view2${pageMaker.makeQuery(pageMaker.startPage-1) }"> 이전 </a>
 				</c:if>
 		
 				<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="index">
@@ -389,7 +389,7 @@
 				</c:forEach>
 		
 				<c:if test="${pageMaker.next && pageMaker.endPage > 0 }">
-					<a href="list_view2${pageMaker.makeQuery(pageMaker.endPage+1) }"> Next </a>
+					<a href="list_view2${pageMaker.makeQuery(pageMaker.endPage+1) }">다음 </a>
 				</c:if>
             </div>
           </div>
