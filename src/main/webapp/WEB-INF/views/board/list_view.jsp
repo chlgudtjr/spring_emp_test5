@@ -379,7 +379,20 @@
                   </tbody>
                 </table>
               </div>
+              <c:if test="${pageMaker.prev}">
+					<a href="list_view2${pageMaker.makeQuery(pageMaker.startPage-1) }"> 이전 </a>
+				</c:if>
+		
+				<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="index">
+					<c:out value="${pageMaker.cri.pageNum==index?'':''}"></c:out>
+					<a href="list_view2${pageMaker.makeQuery(index)}">${index }</a>
+				</c:forEach>
+		
+				<c:if test="${pageMaker.next && pageMaker.endPage > 0 }">
+					<a href="list_view2${pageMaker.makeQuery(pageMaker.endPage+1) }">다음 </a>
+				</c:if>
             </div>
+            <button type="submit">사원추가</button>
           </div>
 
         </div>

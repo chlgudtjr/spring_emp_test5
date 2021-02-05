@@ -22,7 +22,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="edu.bit.ex.controller" />
+	<context:component-scan base-package="edu.bit.ex" />
 	
 	<!-- 인터셉터 객체 생성 -->
 <!-- 	<beans:bean id="boardInterceptor" class="edu.bit.board.interceptor.BoardInterceptor">
